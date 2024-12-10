@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Source Serif 4", "Times New Roman", serif;
+  margin: 0;
+}
+
+#container {
+  width: 550px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  background: #fff;
+  margin: auto;
+  padding: 20px;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+p {
+  margin: auto;
+  padding: 10px;
+  background: #fff;
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+img {
+  display: block;
+  margin: auto;
+  border-style: solid;
+  border-width: 1.25px;
+  border-color: #000;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.box.show {
+  transform: transLateX(0%);
+  transition: all 0.5s ease-in-out;
+}
+
+.trial ul {
+  padding: 50px 0;
+}
+
+.trial ul li {
+  list-style: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background-color: #dcdcdc;
+}
+
+.trial time {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.trial ul li:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 0.5s;
+  background-color: inherit;
+  z-index: 1;
+}
+
+.trial ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background-color: #fff;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.trial ul li:nth-child(odd) div {
+  left: 45px;
+  transform: translateX(200px);
+}
+
+.trial ul li:nth-child(even) div {
+  left: calc(-400px - 45px + 6px);
+  transform: translateX(-200px);
+}
+
+.trial ul li.in-view:after {
+  background-color: #dcdcdc;
+}
+
+.trial ul li.in-view div {
+  transform: none !important;
+  opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .timeline ul li {
+    width: 250px;
+  }
+  .timeline ul li:nth-child(even) div {
+    left: calc(-250px - 45px - 6px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timeline ul li {
+    margin-left: 20px;
+  }
+  .timeline ul li div {
+    width: calc(100vw - 90px);
+  }
+  .timeline ul li:nth-child(even) div {
+    left: 45px;
+  }
+}
